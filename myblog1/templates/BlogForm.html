@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}Blog Form{% endblock title %}
+    <title>Create Your Blog</title>
+    
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/BlogForm.css' %}">
+    {% comment %} <style>
+        /* Center the heading */
+        .header-container {
+            text-align: center;
+        }
+
+        /* Align the category dropdown to the right */
+        .category-container {
+            text-align: right;
+            margin-top: -40px; /* Adjust the position if necessary */
+        }
+
+        /* Add some spacing between title and category */
+        .category-container select {
+            margin-left: 20px;
+        }
+    </style> {% endcomment %}
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+    <!-- Center the "Add Your Blog" text -->
+    <div class="header-container">
+        <h1>Add Your Blog</h1>
+    </div>
+
+    <!-- Category Dropdown to the Right -->
+    <form action="{% url 'BlogForm' %}" method="POST">
+        {% csrf_token %}
+    
+        <label for="title">Blog:</label>
+        <input type="text" id="title" name="title" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+        
+        <button type="submit">Add Blog</button>
+    </form>   
+{% endblock %}
+
+</body>
+</html>

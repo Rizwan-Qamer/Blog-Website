@@ -1,0 +1,104 @@
+/* Blog Header Styling */
+.blog-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.blog-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.blog-header p {
+    font-size: 1.25rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Blog Post Container */
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Individual Blog Post */
+.blog-post {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.blog-post h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.blog-post .btn {
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Edit Button Style */
+.blog-post .btn-info {
+    background-color: #5bc0de;
+    color: white;
+    border: none;
+}
+
+.blog-post .btn-info:hover {
+    background-color: #31b0d5;
+}
+
+/* Delete Button Style */
+.blog-post .btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+
+.blog-post .btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Modal Styling */
+.modal-content {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.modal-footer .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modal-footer .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Ensure posts align properly on smaller screens */
+@media (max-width: 768px) {
+    .blog-posts {
+        justify-content: center;
+    }
+
+    .blog-post {
+        width: 100%;
+        max-width: 95%;
+    }
+}
