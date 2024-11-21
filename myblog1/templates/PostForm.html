@@ -7,22 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %}Post Form{% endblock title %}
     <title>Create Your Blog</title>
-    
+
     {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/PostForm.css' %}">
     <style>
-        /* Center the heading */
         .header-container {
             text-align: center;
         }
 
-        /* Align the category dropdown to the right */
         .category-container {
             text-align: right;
-            margin-top: -40px; /* Adjust the position if necessary */
+            margin-top: -40px;
         }
 
-        /* Add some spacing between title and category */
         .category-container select {
             margin-left: 20px;
         }
@@ -34,7 +31,7 @@
 {% block content %}
 <h1>Create a new post for "{{ blog.title }}"</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data"> <!-- Added enctype -->
     {% csrf_token %}
     <div class="form-group">
         <label for="title">Post Title</label>
@@ -44,9 +41,13 @@
         <label for="description">Post Description</label>
         <textarea name="description" class="form-control" rows="4" required></textarea>
     </div>
+    <div class="form-group">
+        <label for="image">Upload Image</label>
+        <input type="file" name="image" class="form-control" accept="image/*"> <!-- Image upload input -->
+    </div>
     <button type="submit" class="btn btn-primary">Create Post</button>
 </form>
-{% endblock %}
 
+{% endblock %}
 </body>
 </html>

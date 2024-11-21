@@ -13,11 +13,13 @@ def PostForm(request, blog_id):
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
+        image = request.FILES.get('image')  # Get the uploaded image
 
         BlogPost.objects.create(
             title=title,
             description=description,
-            blog=blog  
+            blog=blog,
+            image=image  # Save the image
         )
         return redirect('BlogDetail', id=blog.id)
 
@@ -30,7 +32,9 @@ def EditPost(request, post_id):
         post.title = request.POST.get('title')
         post.description = request.POST.get('description')
 
-       
+        if 'image' in request.FILES:
+            post.image = request.FILES['image']
+
         post.save()
         return redirect('BlogDetail', id=post.blog.id)
     
